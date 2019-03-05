@@ -1,6 +1,7 @@
 package mg.rija.gestion.risque.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,14 +27,14 @@ public class RisqueServiceImpl implements RisqueService {
 	}
 
 	@Override
-	public Risque findById(int id) {
-		return risqueRepository.findOne(id);
+	public Optional<Risque> findById(int id) {
+		return risqueRepository.findById(id);
 	}
 
 	@Override
 	public void delete(int id) {
-		if (risqueRepository.exists(id)) {
-			risqueRepository.delete(id);
+		if (risqueRepository.existsById(id)) {
+			risqueRepository.deleteById(id);
 		}
 	}
 

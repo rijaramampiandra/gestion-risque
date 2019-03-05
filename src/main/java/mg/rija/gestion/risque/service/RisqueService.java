@@ -1,6 +1,7 @@
 package mg.rija.gestion.risque.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import mg.rija.gestion.risque.entity.Risque;
 
@@ -35,7 +36,7 @@ public interface RisqueService {
 	 *            the id.
 	 * @return the risque.
 	 */
-	Risque findById(int id);
+	Optional<Risque> findById(int id);
 
 	/**
 	 * Removo risque.

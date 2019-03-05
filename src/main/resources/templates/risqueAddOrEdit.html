@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ajout risque</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/core.css}" />
+<script th:src="@{/resources/js/jquery-latest.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/gestion_inscription.js}"></script>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?hl=fr"></script>
+</head>
+<body>
+	<div th:replace="/fragments/header :: header" />
+	<div class="container">
+		<form class="form-horizontal" th:if="${edit}"
+			th:action="@{/risqueAddOrEdit/saveedit}" th:object="${risque}"
+			method="post">
+			<input type="hidden" th:field="*{id}" /> <input type="hidden" />
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="descriptionRisque">Description
+					du risque</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text"
+						th:field="*{descriptionRisque}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="probabiliter">Probabilit&eacute;</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text" th:field="*{probabiliter}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="impact">Impacte</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text" th:field="*{impact}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Sauvegarder</button>
+				</div>
+			</div>
+		</form>
+		<form class="form-horizontal" th:if="${add}"
+			th:action="@{/risqueAddOrEdit/addAction}" th:object="${risque}"
+			method="post">
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="descriptionRisque">Description
+					du risque</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text"
+						th:field="*{descriptionRisque}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group" th:if="${errorRisqueDescription}">
+				<div class="col-sm-offset-3 form-control-error col-md-4"
+					th:utext="${error}"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="probabiliter">Probabilit&eacute;</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text" th:field="*{probabiliter}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group" th:if="${errorProbabiliter}">
+				<div class="col-sm-offset-3 form-control-error col-md-4"
+					th:utext="${error}"></div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-2 control-label" for="impact">Impacte</label>
+				<div class="col-md-4">
+					<input class="form-control" type="text" th:field="*{impact}" />
+				</div>
+				<div class="col-md-6">&nbsp;</div>
+			</div>
+			<div class="form-group" th:if="${errorImpact}">
+				<div class="col-sm-offset-3 form-control-error col-md-4"
+					th:utext="${error}"></div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default">Sauvegarder</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div th:replace="/fragments/footer :: footer"></div>
+</body>
+</html>

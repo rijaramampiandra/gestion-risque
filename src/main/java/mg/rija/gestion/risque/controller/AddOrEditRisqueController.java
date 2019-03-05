@@ -1,6 +1,7 @@
 package mg.rija.gestion.risque.controller;
 
 import java.util.Calendar;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -119,8 +120,12 @@ public class AddOrEditRisqueController {
 		ModelAndView model = new ModelAndView(ViewName.PAGE_ADD_OR_EDIT_DEVELOPPEUR);
 		model.addObject("msg", id);
 		int idInt = Integer.valueOf(id);
-		Risque risque = risqueService.findById(idInt);
-		model.addObject("risque", risque);
+		Optional<Risque> risque = risqueService.findById(idInt);
+		if (risque.isPresent()) {
+			model.addObject("risque", risque.get());
+		} else {
+			model.addObject("risque", null);
+		}
 		// Utiliser sur le header
 		model.addObject(ViewName.PAGE, ViewName.PAGE_ADD_OR_EDIT_DEVELOPPEUR);
 		model.addObject("edit", true);

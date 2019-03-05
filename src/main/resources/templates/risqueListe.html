@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Liste requête</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/core.css}" />
+<script th:src="@{/resources/js/jquery-latest.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+	<div th:replace="/fragments/header :: header" />
+
+	<div class="container">
+		<div class="row">
+			<table class="table table-striped table-bordered">
+				<tr>
+					<th>#</th>
+					<th class="center">Description risque</th>
+					<th class="center">Probabilit&egrave;</th>
+					<th class="center">Impacte</th>
+					<th class="center">Criticit&egrave;</th>
+					<th class="center">Editer</th>
+					<th class="center">Supprimer</th>
+				</tr>
+				<tbody>
+					<tr th:each="row,rowStat : ${listRisque}">
+						<td th:text="${rowStat.count}"></td>
+						<td th:text="${row.descriptionRisque}"></td>
+						<td th:text="${row.probabiliter}"></td>
+						<td th:text="${row.impact}"></td>
+						<td th:text="${row.criticiter}"></td>
+						<td class="center"><a
+							th:href="@{/risqueAddOrEdit/edit(id=${row.id})}">Editer</a></td>
+						<td class="center"><a
+							th:href="@{/risqueAddOrEdit/remove(id=${row.id})}">Supprimer</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="/fragments/footer :: footer" />
+</body>
+</html>

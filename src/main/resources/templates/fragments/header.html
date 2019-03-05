@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/core.css}" />
+<script th:src="@{/resources/js/jquery-latest.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<script th:src="@{/resources/js/gestion_inscription.js}"></script>
+</head>
+<body>
+	<div th:fragment="header">
+		<!-- this is header -->
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/}">Gestion risques</a>
+				</div>
+				<div id="navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a th:href="@{/risqueListe}">Liste des risques</a></li>
+						<li><a th:href="@{/risqueAddOrEdit/ajouter}">Ajout risque</a></li>
+						<li><a th:href="@{/cartographie}">Cartographie</a></li>
+						<li><a th:href="@{/logout}">D&egrave;connexion</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</nav>
+	</div>
+
+</body>
+</html>
