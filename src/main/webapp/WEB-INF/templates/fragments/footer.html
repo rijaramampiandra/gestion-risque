@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+
+		<footer>
+			<!-- this is footer -->
+			&copy; 2019 Gestion des risques et impactes <span
+				sec:authorize="isAuthenticated()"> | <a th:href="@{/logout}">Deconn&eacute;xion</a>
+			</span>
+		</footer>
+	</div>
+
+</body>
+</html>

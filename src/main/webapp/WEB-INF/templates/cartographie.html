@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Liste requête</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/core.css}" />
+<link rel="stylesheet" media="screen"
+	th:href="@{/resources/css/tableau.css}" />
+<script th:src="@{/resources/js/jquery-latest.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header" />
+
+	<div class="container">
+		<div class="row">
+			<table>
+				<tr>
+					<td style="text-align: center; font-weight: bold;">Probabilit&eacute;</td>
+					<td>
+						<table id="customers">
+							<tr th:each="row,rowStat : ${listCarto}">
+								<td width="20" th:text="${row.id}"></td>
+								<td height="100" width="100" th:class="${row.classe1}"
+									th:text="${row.firstValue}">&nbsp;</td>
+								<td height="100" width="100" th:class="${row.classe2}"
+									th:text="${row.secondValue}">&nbsp;</td>
+								<td height="100" width="100" th:class="${row.classe3}"
+									th:text="${row.thirdValue}">&nbsp;</td>
+								<td height="100" width="100" th:class="${row.classe4}"
+									th:text="${row.fourthValue}">&nbsp;</td>
+								<td height="100" width="100" th:class="${row.classe5}"
+									th:text="${row.fifthValue}">&nbsp;</td>
+							</tr>
+							<tr>
+								<th>&nbsp;</th>
+								<th>1</th>
+								<th>2</th>
+								<th>3</th>
+								<th>4</th>
+								<th>5</th>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align: center; font-weight: bold;">Impacte</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<div th:replace="fragments/footer :: footer" />
+</body>
+</html>

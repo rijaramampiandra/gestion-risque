@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title th:text="#{view.index.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
+<script th:src="@{/resources/js/jquery-latest.js}"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	<div class="container">
+		<div style="text-align: center;">
+			<img th:src="@{/resources/images/success.png}" />
+			<div th:if="${add}">Risque ajouter avec succ&eacute;</div>
+			<div th:if="${remove}">Supprimer avec succ&eacute;</div>
+		</div>
+	</div>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
